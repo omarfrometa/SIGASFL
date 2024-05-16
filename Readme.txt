@@ -10,21 +10,21 @@ Ecosystem
 Clean Architecture (Onion Architecture based)
 
 00. - Shared Layer
-	Truenorh.Helpers
+	SIGASFL.Helpers
 
 01. - Domain Layer
-	Truenorh.Entities
-	Truenorh.Models
+	SIGASFL.Entities
+	SIGASFL.Models
 
 02. - Repository Layer
 	SIGASFL.Repositories
 
 03. - Service Layer
-	Truenorh.Service
+	SIGASFL.Service
 
 04. - Presentation Layer
 	4.1 - WEB
-		Truenorh.UIX = Blazor Project using .Net 6.0
+		SIGASFL.UIX = Blazor Project using .Net 6.0
 	4.2 - API
 		SIGASFL.Restful => Net Core WebAPI Project using .Net 6.0
 
