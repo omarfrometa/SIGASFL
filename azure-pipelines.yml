@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool: linux_remote_server
+
+stages:
+- stage: Build
+  displayName: Build SIGASFL UIX & API
+  jobs:  
+  - job: BuildUIX
+    displayName: Build DockerFile SIGASFL UIX
+    steps:
+    - script: docker build -t SIGASFL_uix:latest -f SIGASFL.UIX/Dockerfile .
+    - script: docker tag SIGASFL_uix image.oscgre.com/SIGASFL_uix
+    - script: docker push image.oscgre.com/SIGASFL_uix
+
+  - job: BuildAPI
+    displayName: Build DockerFile SIGASFL Api
+    steps:
+    - script: docker build -t SIGASFL_api:latest -f SIGASFL.Restful/Dockerfile .
+    - script: docker tag SIGASFL_api image.oscgre.com/SIGASFL_api
+    - script: docker push image.oscgre.com/SIGASFL_api
+        

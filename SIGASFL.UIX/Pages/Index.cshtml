@@ -1,0 +1,28 @@
+﻿@page
+@using System.Reflection
+@using System.IO
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    string dllPath = Assembly.GetExecutingAssembly().Location;
+
+    DateTime lastChangedDate = DateTime.UtcNow.AddHours(-4);
+    var pageContext = PageContext.HttpContext.Request.Path;
+
+
+    if (System.IO.File.Exists(dllPath))
+    {
+        Assembly assembly = Assembly.LoadFile(dllPath);
+        lastChangedDate = System.IO.File.GetLastWriteTime(dllPath);
+    }
+}
+
+<div class="text-center">
+    <h1 class="display-4">Truenorh CD/CI Demo</h1>
+    <p>Execution Path: @pageContext</p>
+    <p>Last Build:<br /><span style="color:green; font-weight:bold">@lastChangedDate.ToString("F")</span></p>
+    <p>Learning CD/CI integration using Azure DevOps Services.</p>
+    <h1>Test <span style="color:red">#12</span> | @DateTime.UtcNow</h1>
+    <h2>Exclusive for INTEC Students</h2>
+</div>

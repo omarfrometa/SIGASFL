@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/template",
+  "author": "SIGASFL Corporation",
+  "classifications": ["SIGASFL", "Backend"],
+  "identity": "SIGASFL.template",
+  "name": "SIGASFL Backend Project Template",
+  "description": "SIGASFL Backend Template for Projects",
+  "shortName": "SIGASFLtemplate",
+  "sourceName": "SIGASFL Template",
+  "tags": {
+    "language": "C#",
+    "type": "Project"
+  },
+  "icon": "icon.jpg",
+  "preferNameDirectory": true,
+  "symbols":{
+    "Framework": {
+        "type": "parameter",
+        "description": "The target framework for the project.",
+        "datatype": "choice",
+        "choices": [
+            {
+                "choice": "net6.0"
+            },
+            {
+                "choice": "net7.0"
+            }
+        ], 
+        "defaultValue": "net6.0",
+        "replaces": "{TargetFramework}"
+    },
+    "Data Access Technology": {
+      "type": "parameter",
+      "description": "Select your Data Framework Preferred.",
+      "datatype": "choice",
+      "choices": [
+          {
+              "choice": "ADO.NET"
+          },
+          {
+              "choice": "Entity Framework"
+          },
+          {
+              "choice": "Linq to SQL"
+          },
+          {
+              "choice": "Dapper"
+          },
+          {
+              "choice": "NHibernate"
+          }
+      ], 
+      "defaultValue": "net6.0",
+      "replaces": "{TargetFramework}"
+  },
+    "EnableSwaggerSupport":{
+        "type": "parameter",
+        "description": "Enables Swagger Support",
+        "datatype": "bool",
+        "defaultValue": "true"
+    }
+  }
+}
